@@ -2,7 +2,9 @@ Cloud1::Application.routes.draw do
 
   resources :order_items, only: [:create, :update, :destroy]
 
-  resources :carts, only: [:show]
+  #resources :carts, only: [:show]
+  
+  get 'carts', to: 'carts#show'
 
   resources :line_items
 
