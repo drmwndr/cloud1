@@ -1,0 +1,49 @@
+<%= form_for(@line_item) do |f| %>
+  <% if @line_item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@line_item.errors.count, "error") %> prohibited this line_item from being saved:</h2>
+
+      <ul>
+      <% @line_item.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :product %><br />
+    <%= f.collection_select :product_id, Product.all, :id, :pn_with_description %> [ <%= link_to 'New Product', new_product_path, class: 'popup' %> ]
+  </div>
+    <div class="field">
+    <%= f.label :quantity %><br />
+    <%= f.text_field :quantity %>
+  </div>
+  <div class="field">
+    <%= f.label :condition %><br />
+    <%= f.collection_select :condition_id, Condition.all, :id, :description %>
+  </div>
+  <div class="field">
+    <%= f.label :exp_date %><br />
+    <%= f.date_select :exp_date %>
+  </div>
+  <div class="field">
+    <%= f.label :serial_number %><br />
+    <%= f.text_field :serial_number %>
+  </div>
+  <div class="field">
+    <%= f.label :batch_number %><br />
+    <%= f.text_field :batch_number %>
+  </div>
+  <div class="field">
+    <%= f.label :stock_address %><br />
+    <%= f.text_field :stock_address %>
+  </div>
+  <div class="field">
+    <%= f.label :remarks %><br />
+    <%= f.text_area :remarks %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

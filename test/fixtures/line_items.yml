@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  product: 
+  condition: 
+  exp_date: 2017-07-25
+  serial_number: MyString
+  batch_number: MyString
+  stock_address: MyString
+  remarks: MyText
+
+two:
+  product: 
+  condition: 
+  exp_date: 2017-07-25
+  serial_number: MyString
+  batch_number: MyString
+  stock_address: MyString
+  remarks: MyText

@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Product:</b>
+  <%= @line_item.product.pn_with_description %>
+</p>
+
+<p>
+  <b>Condition:</b>
+  <%= @line_item.condition.description %>
+</p>
+
+<p>
+  <b>Exp date:</b>
+  <%= @line_item.exp_date %>
+</p>
+
+<p>
+  <b>Serial number:</b>
+  <%= @line_item.serial_number %>
+</p>
+
+<p>
+  <b>Batch number:</b>
+  <%= @line_item.batch_number %>
+</p>
+
+<p>
+  <b>Stock address:</b>
+  <%= @line_item.stock_address %>
+</p>
+
+<p>
+  <b>Remarks:</b>
+  <%= @line_item.remarks %>
+</p>
+
+<%= link_to 'New', new_line_item_path %> |
+<%= link_to 'Edit', edit_line_item_path(@line_item) %> |
+<%= link_to 'Back', line_items_path %>

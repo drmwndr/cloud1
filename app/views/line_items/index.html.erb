@@ -1,0 +1,37 @@
+<h1>Listing line_items</h1>
+
+<table>
+  <tr>
+    <th>Product</th>
+    <th>Condition</th>
+    <th>Quantity</th>
+    <th>Exp date</th>
+    <th>Serial number</th>
+    <th>Batch number</th>
+    <th>Stock address</th>
+    <th>Remarks</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @line_items.each do |line_item| %>
+  <tr>
+    <td><%= line_item.product.pn_with_description %></td>
+    <td><%= line_item.condition.description %></td>
+    <td><%= line_item.quantity %></td>
+    <td><%= line_item.exp_date %></td>
+    <td><%= line_item.serial_number %></td>
+    <td><%= line_item.batch_number %></td>
+    <td><%= line_item.stock_address %></td>
+    <td><%= line_item.remarks %></td>
+    <td><%= link_to 'Show', line_item %></td>
+    <td><%= link_to 'Edit', edit_line_item_path(line_item) %></td>
+    <td><%= link_to 'Destroy', line_item, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Line item', new_line_item_path %>

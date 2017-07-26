@@ -1,0 +1,41 @@
+<h1>Listing products</h1>
+<h3><%= link_to 'Product Types', product_types_path %> &bull; 
+    <%= link_to 'Product UOM', product_uoms_path %> &bull; 
+    <%= link_to 'Line  Items', line_items_path %> 
+</h3>
+
+<table>
+  <tr>
+    <th>Product type</th>
+    <th>Product uom</th>
+    <th>Part number</th>
+    <th>Description</th>
+    <th>Alternative to</th>    
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @products.each do |product| %>
+  <tr>
+   <td><%= product.product_type.description %></td>
+    <td><%= product.product_uom.uom %></td>
+    <td><%= product.part_number %></td>
+    <td><%= product.description %></td>
+    <td>
+    <% if product.alternatives.any? %>
+        <% product.product_alternatives.each do |alt| %>
+            <li><%= alt.master_product.pn_with_description rescue nil %></li>
+        <% end %>
+    <% end %>
+    </td>
+    <td><%= link_to 'Show', product %></td>
+    <td><%= link_to 'Edit', edit_product_path(product) %></td>
+    <td><%= link_to 'Destroy', product, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Product', new_product_path %>
